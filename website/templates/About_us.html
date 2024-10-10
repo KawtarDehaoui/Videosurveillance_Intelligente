@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}About Us{% endblock %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.295);
+        }
+        h1 { color:white;}
+        p { line-height: 1.5;  }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><center>About Us</center></h1>
+        <p><br>This Web application has been designed as part of a Final Year Project to obtain a Bachelor's Degree in Computer Science, Networks, and Multimedia (IRM) at the Faculty of Sciences and Techniques of Mohammedia.</p>
+        <p><strong>This project was developed by: </strong>
+            <ul>
+                <li>DEHAOUI Kawtar</li>
+                <li>EL HMIDI Yasmina</li>
+            </ul>
+        </p>
+        <p><strong>Supervised by: </strong>
+            <ul>
+                <li>Prof. LEGHRIS Cherkaoui</li>
+            </ul>
+        </p>
+        <p>
+            It is an application equipped with an intelligent video surveillance system specialized in ensuring security in a parking area.
+        </p>
+        <p><br><strong>The application offers the following features: </strong>
+            <ol>
+                <li> <strong>Checking the availability of parking spaces : </strong>Checking the availability of parking spaces: The system allows security agents to monitor and verify
+                    the availability of parking spaces in real-time. They can quickly identify and assign vacant spaces to
+                    incoming vehicles, ensuring efficient parking management.</li>
+                <li><strong>Displaying alerts in case of incidents : </strong>Displaying alerts in case of incidents: The system is equipped with video surveillance technology that
+                    enables security agents to receive real-time alerts in case of incidents or security breaches within
+                    the parking area. This ensures a prompt response to maintain the safety and security of the premises.</li>
+                <li><strong>Detecting license plate numbers of cars : </strong>Detecting license plate numbers of cars: By utilizing advanced ANPR (Automatic Number Plate
+                    Recognition) technology, the system enables security agents to automatically capture and record license
+                    plate numbers of vehicles entering or exiting the parking area. This helps in tracking and identifying
+                    vehicles for security and law enforcement purposes.</li>
+            </ol>
+        </p>
+
+    </div>
+</body>
+</html>
+
+{% endblock %}

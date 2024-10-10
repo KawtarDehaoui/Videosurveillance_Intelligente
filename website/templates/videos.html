@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Places{% endblock %}
+{% block content %}
+
+    <div id="videoList" class="container">
+        <div class="video-container">
+            <h2 style="color: white;">Places Count</h2>
+            <div class="video-wrapper">
+                <img src="{{ url_for('auth.video_place') }}" class="video" style="width: 100%;" />
+                {% if current_user.email == 'admin@gmail.com' %}
+                <button class="remove-button" onclick="removeVideo(this)">X</button>
+                {% endif %}
+            </div>
+        </div>
+        <div class="video-container">
+            <h2 style="color: white;">Accident Detection</h2>
+            <div class="video-wrapper">
+                <img src="{{ url_for('auth.video_accident') }}" class="video" style="width: 100%;" />
+                {% if current_user.email == 'admin@gmail.com' %}
+                <button class="remove-button" onclick="removeVideo(this)">X</button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .video {
+            transition: width 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .video-container {
+            margin-bottom: 20px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .remove-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        function removeVideo(button) {
+            var videoContainer = button.parentNode.parentNode;
+            var confirmed = confirm('Are you sure you want to remove the video from the screen?');
+            if (confirmed) {
+                videoContainer.remove();
+            }
+        }
+
+        // Function to toggle the video width on click
+        function toggleZoom() {
+            if (this.style.width === "100%") {
+                this.style.width = "40%";
+            } else {
+                this.style.width = "100%";
+            }
+        }
+
+        // Add click event listeners to all video elements
+        var videos = document.getElementsByClassName("video");
+        for (var i = 0; i < videos.length; i++) {
+            videos[i].addEventListener("click", toggleZoom);
+        }
+    </script>
+{% endblock %}

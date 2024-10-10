@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}matricule{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="column">
+        <h2 style="color: white;">Licence plate</h2>
+        <img src="{{ url_for('auth.anpr') }}" class="video" style="width: 40%;" />
+    </div>
+    <div class="column">
+        <div id="showuser">
+            <h3 style="color: white;">matricule table</h3>
+            <table class="table" style="background-color: lightgray;">
+                <thead>
+                    <tr>
+                       
+                        <th>Matricule</th>
+                        <th>Enter time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in data %}
+                    <tr>
+                        
+                        <td>{{ item[0] }}</td>
+                        <td>{{ item[2] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<style>
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .column {
+        width: 50%;
+    }
+
+    .video {
+        transition: width 0.3s ease-in-out;
+        cursor: pointer;
+        max-width: 100%;
+    }
+</style>
+
+<script>
+    // Function to toggle the video width on click
+    function toggleZoom() {
+        if (this.style.width === "40%") {
+            this.style.width = "100%";
+        } else {
+            this.style.width = "40%";
+        }
+    }
+
+    // Add click event listeners to all video elements
+    var videos = document.getElementsByClassName("video");
+    for (var i = 0; i < videos.length; i++) {
+        videos[i].addEventListener("click", toggleZoom);
+    }
+</script>
+
+
+{% endblock %}
